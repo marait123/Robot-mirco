@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Micro-App</string>
+    <string name="welcome">hello to micro project</string>
+</resources>
