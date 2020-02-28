@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Speech To Text-App</string>
+    <string name="app_name">Speech To Text App</string>
     <string name="welcome">hello to micro project</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>

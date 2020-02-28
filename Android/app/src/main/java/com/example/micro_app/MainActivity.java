@@ -13,6 +13,7 @@ import java.util.Locale;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView txvResult;
@@ -22,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         txvResult = (TextView) findViewById(R.id.txvResult);
+
+        //Toast toast=Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT);
+        //toast.setMargin(50,50);
+        //toast.show();
+
+        Utility.ToastMessage(this, "hi micro");
     }
 
     public void getSpeechInput(View view) {
@@ -33,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(intent, 10);
         } else {
-            Toast.makeText(this, "Your Device Don't Support Speech Input", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "putYour Device Don't Support Speech In", Toast.LENGTH_SHORT).show();
+            //Utility.ToastMessage(this, "putYour Device Don't Support Speech In");
+
         }
     }
 
@@ -45,7 +54,12 @@ public class MainActivity extends AppCompatActivity {
             case 10:
                 if (resultCode == RESULT_OK && data != null) {
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    txvResult.setText(result.get(0));
+                    String talk = result.get(0);
+
+                    txvResult.setText(talk);
+                    if(talk.trim().equals("hello")){
+                        Utility.ToastMessage(this, "hello my love");
+                    }
                 }
                 break;
         }
